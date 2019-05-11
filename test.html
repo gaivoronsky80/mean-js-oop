@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	function Deck() {
+    this.cards = [];
+
+    function Card(rank, suit, value) {
+        this.rank = rank;
+        this.suit = suit;
+        this.value = value;
+    }
+
+    var suits = ["Spade", "Club", "Diamond", "Heart"];
+    var ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+
+    this.checkCards = function () {
+        for (var card of this.cards) {
+            console.log(card);
+        }
+    }
+    
+    this.reset = function() {
+        for (var suit of suits) {
+            var val = 1;
+            for (var rank of ranks) {
+                var card = new Card(rank, suit, val);
+                val++;
+                this.cards.push(card)
+            }
+        }
+    }
+}
+
+
+
+
+var deck1 = new Deck();
+deck1.reset();
+deck1.checkCards();
+</script>

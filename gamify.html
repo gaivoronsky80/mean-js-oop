@@ -1,0 +1,157 @@
+<script type="text/javascript">
+	var tigger = { 
+        character: "Tigger",
+        greet: function(){
+            console.log("Tigger is Tigger");
+        } 
+    };
+	var pooh = { 
+        character: "Winnie the Pooh",
+        greet: function(){
+            console.log("Pooh is Pooh");
+        }
+    };
+	var piglet = { 
+        character: "Piglet",
+        greet: function(){
+            console.log("Piglet is Piglet");
+        }
+    };
+	var bees = { 
+        character: "Bees",
+        greet: function(){
+            console.log("Bees is Bees");
+        }
+    };
+	var owl = { 
+        character: "Owl",
+        greet: function(){
+            console.log("Owl is Owl");
+        }
+    };
+	var christopher_robin = { 
+        character: "Christopher Robin",
+        greet: function(){
+            console.log("Christopher is Robin");
+        }
+    };
+	var rabbit = { 
+        character: "Rabbit",
+        greet: function(){
+            console.log("Rabbit is Rabbit");
+        }
+    };
+	var gopher = { 
+        character: "Gopher",
+        greet: function(){
+            console.log("Gopher is Gopher");
+        }
+    };
+	var kanga = { 
+        character: "Kanga",
+        greet: function(){
+            console.log("Kanga is Kanga");
+        }
+    };
+	var eeyore = { 
+        character: "Eeyore",
+        greet: function(){
+            console.log("Eeyore is Eeyore");
+        }
+    };
+	var heffalumps = { 
+        character: "Heffalumps",
+        greet: function(){
+            console.log("Heffalumps is Heffalumps");
+        }
+    };
+
+
+	tigger.north = pooh;
+
+	pooh.south = tigger;
+	pooh.west = piglet;
+	pooh.east = bees;
+	pooh.north = christopher_robin;
+
+	piglet.north = owl;
+	piglet.east = pooh;
+
+	bees.west = pooh;
+	bees.north = rabbit;
+
+	owl.south = piglet;
+	owl.east = christopher_robin;
+
+	christopher_robin.west = owl;
+	christopher_robin.south = pooh;
+	christopher_robin.east = rabbit;
+	christopher_robin.north = kanga;
+
+	rabbit.south = bees;
+	rabbit.west = christopher_robin;
+	rabbit.east = gopher;
+
+	gopher.west = rabbit;
+
+	kanga.south = christopher_robin;
+	kanga.north= eeyore;
+
+	eeyore.south = kanga;
+	eeyore.east = heffalumps;
+
+	heffalumps.west = eeyore;
+
+	var player = {
+		location: pooh
+	}
+
+	function move(direction){
+        if (direction == "north"){
+            if (player.location = player.location.north){
+                return "You are now at " + player.location.character + "'s house";
+            }
+            return "You may not go that way!";   
+        }
+        if (direction == "south"){
+            if (player.location = player.location.south){
+                return "You are now at " + player.location.character + "'s house";
+            }
+            return "You may not go that way!";    
+        }
+        if (direction == "east"){
+            if (player.location = player.location.east){
+                return "You are now at " + player.location.character + "'s house";
+            }
+            return "You may not go that way!";  
+        }
+        if (direction == "west"){
+            if (player.location = player.location.west){
+                return "You are now at " + player.location.character + "'s house";
+            }
+            return "You may not go that way!";    
+        }
+    }
+
+    function pickUp(){
+        if (player.location == bees){
+            return "Honey is True!";
+        }
+        return "There is no honey at this location!"
+    }
+
+    function mission(){
+        var min=1; 
+        var max=10;  
+        var random = Math.floor(Math.random() * (max - min)) + min; 
+        var delivery = random;
+    }
+    
+    console.log(move("north"));
+    console.log(move("south"));
+    console.log(move("east"));
+    console.log(move("west"));
+    console.log(player.location.greet());
+    console.log(pickUp());
+    console.log(mission());
+</script>

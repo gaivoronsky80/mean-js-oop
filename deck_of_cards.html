@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	class Card{
+		constructor(suit, face, value){
+			this.suit = suit;
+			this.face = face;
+			this.value = value;
+		}
+	}
+
+	class Deck{
+		constructor(){
+			this.deck = [];
+			this.reset;
+			this.shuffle;
+
+			const suits = ["Hearts", "Clubs", "Diamonds", "Spades"];
+			const faces = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+			const values = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+
+			for(let i in suits){
+				for(let j in values){
+					this.deck.push(`Value: ${values[j]}, Face: ${faces[j]}, Suit: ${suits[i]}`);
+				}
+			}
+		}
+		shuffle(){
+			const { deck } = this;
+			let m = deck.length, i;
+
+			while (m) {
+			i = Math.floor(Math.random() * m--);
+
+			[deck[m], deck[i]] = [deck[i], deck[m]];
+			}
+
+			return this;
+		}
+		deal(){
+    		return this.deck.pop();
+  		}
+	}
+
+	const deck1 = new Deck();
+	deck1.shuffle();
+	console.log(deck1.deck);
+	var card = new Card();
+</script>

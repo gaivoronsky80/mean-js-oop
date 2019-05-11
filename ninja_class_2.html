@@ -1,0 +1,59 @@
+<script type="text/javascript">
+	function Ninja(name, health){
+		var speed = 3;
+		var strength = 3;
+		this.name = name;
+		this.health = 100;
+
+		this.sayName = function(){
+			console.log("My ninja name is " + this.name);
+		}
+
+		this.showStatus = function(){
+			console.log("Name: " + this.name + " , Health: " + this.health + ", Speed: " + speed + ", Strength: " + strength);
+		}
+
+		this.drinkSake = function(){
+			this.health += 10;
+			console.log(this.name +" drank sake! +10 to your health! Health is now: " + this.health + "!");
+			return this;
+		}
+
+		this.addStrength = function(){
+        	return strength;
+    	}
+
+		this.punch = function(victim){
+			if(victim instanceof Ninja){
+				victim.health -= 5;
+				console.log(victim.name + " was punched by " + this.name + " and lost 5 health! Health is now: "+ victim.health + "!");
+			}
+			else{
+				console.log("Fight!")
+			}
+			return this;
+		}
+
+		this.kick = function(enemy){
+			if(enemy instanceof Ninja){
+				var newStrength = this.addStrength() + 1;
+				enemy.health -= 15;
+				console.log(enemy.name + " was kicked by " + this.name + " and lost 15 health! His health is now: "+ enemy.health + "!");
+				console.log("In this case, " + enemy.name + " lost 15 health because " + this.name + " has 1 point of strength. His strength is now: " + newStrength + "!")
+			}
+			else{
+				console.log("Fight!")
+			}
+			return this;
+		}
+
+	}
+	var blueNinja = new Ninja("Goemon");
+	var redNinja = new Ninja("Bill Gates");
+	blueNinja.sayName();
+	blueNinja.showStatus();
+	blueNinja.drinkSake();
+	redNinja.punch(blueNinja);
+	blueNinja.kick(redNinja);
+
+</script>
